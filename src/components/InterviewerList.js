@@ -1,9 +1,11 @@
 import React from "react";
 import "components/InterviewerList.scss";
 import InterviewerListItem from "components/InterviewerListItem";
+import PropTypes from 'prop-types';
 
 
-export default function InterviewerList(props) {
+
+function InterviewerList(props) {
   console.log("props in interviewerList component = ", props);
   const interviewersArray = props.interviewers.map(interviewer => {
     return (
@@ -27,6 +29,13 @@ export default function InterviewerList(props) {
     </section>
   );
 }
+
+//using propTypes library to test that our InterviewerList returns an array
+InterviewerList.propTypes = {
+  interviewers: PropTypes.array.isRequired
+};
+
+export default InterviewerList;
 
 
 // export default function DayList(props)  {

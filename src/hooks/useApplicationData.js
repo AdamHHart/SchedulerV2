@@ -59,19 +59,33 @@ export default function useApplicationData() {
   // };
 
   // // passing newDaysObj into set state when booking, cancelling, and editing
-  
-  function updateSpots(id, increment) {
-    const days = [ ...state.days ]
-    console.log(days);
+  const getSpotsForDay = function (dayObj, appointments) {
 
-    const foundDays = days.find(day => day.appointments.includes(id));
-    if (increment === 'sub') {
-      foundDays.spots -= 1;
-      return foundDays;
+    let spots = 0;
+    for (const id of dayObj.appointments) {
+      const appointment = appointments[id];
+      console.log('appointment.interview', appointment.interview)
+      if (!appointment.interview) {
+        spots++;
+      }
     }
-    // return foundDays.spots += 1;
-    return days;
+    console.log('spots', spots)
+    console.log('dayObj', dayObj)
+    return spots;
   }
+
+  //return number of spots for a day
+  function updateSpots(dayName, days, appointments) {
+
+    //find the day Object
+    const dayObj = days.find(day => day.name === dayName);
+
+    //calculate spot for this day
+    const spots = getSpotsForDay(dayObj, appointments);
+    console.log('return', days.map(day => day.name === dayName ? { ...dayObj, spots} : day))
+    return days.map(day => day.name === dayName ? { ...day, spots} : day);
+  }
+
 
   function cancelInterview(id) {
 
@@ -85,10 +99,9 @@ export default function useApplicationData() {
       [id]: nullInterview
     }
 
-    const spotsCount = updateSpots(id);
-
       return axios.delete(`http://localhost:8001/api/appointments/${id}`)
-        .then(() => setState({ ...state, appointments, spotsCount }))
+      .then(() => setState({ ...state, appointments, days: updateSpots(state.day, state.days, appointments)}))
+      // .catch(error => console.error(error));
   }
 
   // HAVE TO ADD INTERVIEWER TO IF STATEMENT WHEN INTERVIEWERS IS RENDERED
@@ -104,14 +117,11 @@ export default function useApplicationData() {
       [id]: appointment
     };
 
-    updateSpots(id, "sub");
-
-    return axios.put(`http://localhost:8001/api/appointments/${id}`, {interview})
-    .then(() => setState({ ...state, appointments }))
+    return axios.put(`http://localhost:8001/api/appointments/${id}`, appointment)
+    .then(() => setState({ ...state, appointments, days: updateSpots(state.day, state.days, appointments)}))
+    // .catch(error => console.error(error));
   }
-
   
-
   return {
     state,
     setDay,

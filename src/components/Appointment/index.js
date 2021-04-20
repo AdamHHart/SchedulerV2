@@ -77,12 +77,14 @@ function confirmCancel() {
 
 const editInterview = () => transition(EDIT);
 
+
+
 console.log("props", props);
 console.log("STATE ========", state.interviewers);
 // console.log("props.interview.interviewer", props.interview.interviewer);
 
   return (
-    <article className = "appointment">
+    <article className = "appointment" data-testid="appointment">
       <Header time={props.time}></Header>
         {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
         
@@ -121,7 +123,7 @@ console.log("STATE ========", state.interviewers);
         name={props.interview.student}
         interviewer={props.interview.interviewer}      
         // interviewers={props.interviewers}
-        interviewers={[]}
+        interviewers={props.interviewersForDay}
         onSave={save}
         onCancel={back}
         ></Form>)}
