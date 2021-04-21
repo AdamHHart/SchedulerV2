@@ -112,7 +112,7 @@ console.log("STATE ========", state.interviewers);
         
         {mode === CONFIRM && (
         <Confirm
-        message="are you sure you'd like to delete this interview?"
+        message="Are you sure you'd like to delete this interview?"
         onCancel={back}
         onConfirm={confirmCancel}
         ></Confirm>)}

@@ -3,6 +3,7 @@ import "components/DayListItem.scss";
 import classNames from 'classnames/bind';
 
 
+
 export default function DayListItem(props) {
   const formatSpots = function(spots) {
     if(spots > 1) {
@@ -22,7 +23,7 @@ export default function DayListItem(props) {
   });
 
   return (
-    <li className = {dayClass} onClick = {
+    <li data-testid="day" className = {dayClass} onClick = {
       props.setDay
     }>
       <h2 className="text--regular">{props.name}</h2> 
