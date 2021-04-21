@@ -109,6 +109,8 @@ console.log("STATE ========", state.interviewers);
         ></Form>)}
 
         {mode === SAVING && <Status message="Saving"></Status>}
+        {mode === DELETING && <Status message="Deleting"></Status>}
+
         
         {mode === CONFIRM && (
         <Confirm
@@ -135,7 +137,7 @@ console.log("STATE ========", state.interviewers);
         ></Error>)}
         {mode === ERROR_SAVE && (
         <Error
-        message="failed to delete"
+        message="failed to save"
         onClose={back}
 
         ></Error>)}

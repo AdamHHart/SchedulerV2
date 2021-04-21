@@ -127,7 +127,7 @@ describe("Application", () => {
     fireEvent.click(getByText(appointment, "Save"));
   
     expect(
-      getByText(appointment, "Saving?")
+      getByText(appointment, "Saving")
     ).toBeInTheDocument();
 
     await waitForElement(() => getByText(container, "Archie Cohen"))
@@ -138,7 +138,7 @@ describe("Application", () => {
       queryByText(day, "Monday")
     );
   
-    expect(getByText(day, "1 spots remaining")).toBeInTheDocument();
+    expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
   });
 
   it("shows the save error when failing to save an appointment", async() => {
@@ -162,7 +162,7 @@ describe("Application", () => {
       queryByText(day, "Monday")
     );
   
-    expect(getByText(day, "1 spots remaining")).toBeInTheDocument();
+    expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
   });
 
   it("shows the delete error when failing to delete an existing appointment", async() => {
@@ -185,14 +185,14 @@ describe("Application", () => {
   
     expect(getByText(appointment, "Deleting")).toBeInTheDocument();
   
-    await waitForElement(() => getByAltText(appointment, "Error"));
+    await waitForElement(() => getByText(appointment, "Could not delete appointment"));
     expect(getByText(appointment, "Error")).toBeInTheDocument();
   
     const day = getAllByTestId(container, "day").find(day =>
       queryByText(day, "Monday")
     );
   
-    expect(getByText(day, "1 spots remaining")).toBeInTheDocument();
+    expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
 
   });
 
