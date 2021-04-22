@@ -42,11 +42,23 @@ For this app to run properly, setup the database and run the API Server and Clie
 - [http://localhost:8000/](http://localhost:8000/)
 
 
-[Layout](https://github.com/AdamHHart/SchedulerV2/blob/main/public/docs/layout.png?raw=true)
+<img src="https://github.com/AdamHHart/SchedulerV2/blob/main/public/docs/layout.png?raw=true"
+     alt="Layout"
+     width=90%;/>
 
-[Delete Message](https://github.com/AdamHHart/SchedulerV2/blob/main/public/docs/delete_message.png?raw=true)
 
-[Edit Phone](https://github.com/AdamHHart/SchedulerV2/blob/main/public/docs/phone_edit.png?raw=true) [PhoneView](https://github.com/AdamHHart/SchedulerV2/blob/main/public/docs/phone_view.png?raw=true)
+<img src="https://github.com/AdamHHart/SchedulerV2/blob/main/public/docs/delete_message.png?raw=true"
+     alt="Delete Message"
+     width=90%;/>
+
+
+
+<img src="https://github.com/AdamHHart/SchedulerV2/blob/main/public/docs/phone_edit.png?raw=true"
+     alt="Edit Phone"
+     width=43%;/>             <img src="https://github.com/AdamHHart/SchedulerV2/blob/main/public/docs/phone_view.png?raw=true"
+     alt="Phone View"
+     width=43%;/>
+
 
 
 ## ToolKit
