@@ -1,49 +1,25 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 
 import "components/Application.scss";
-
 import "components/InterviewerListItem.scss"
-
 import DayList from "components/DayList";
 import "components/Appointment";
 import Appointment from "components/Appointment";
-
 import { getAppointmentsForDay } from "helpers/selectors";
 import { getInterviewersForDay } from "helpers/selectors";
 import { getInterview } from "helpers/selectors";
 
 import useApplicationData from "hooks/useApplicationData";
 
-export default function Application(props) {
 
+export default function Application(props) {
   const {
     state,
     setDay,
     bookInterview,
     cancelInterview
   } = useApplicationData();
-
-  const dailyAppointments = getAppointmentsForDay(state, state.day);
-
-
-// console.log("state.interviewers", state.interviewers);
-
-  // const scheduleList = dailyAppointments.map(eachAppointment => {
-  //   // const interview = getInterview(state, eachAppointment.interview);
-  //   return (
-  //     <Appointment
-  //     key={eachAppointment.id}
-  //     {...eachAppointment}
-  //     // interviewer={}
-  //     interviewersForDay={state.interviewers}
-  //     bookInterview={bookInterview}
-  //     cancelInterview={cancelInterview}
-  //     // editInterview={editInterview}
-  //   />
-  //   )
-  // })
-
+  
   const appointmentsJSX = getAppointmentsForDay(state, state.day).map(
     appointment => {
       const interview = getInterview(state, appointment.interview);

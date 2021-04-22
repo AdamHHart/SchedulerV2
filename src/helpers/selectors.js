@@ -1,3 +1,4 @@
+
 export function getAppointmentsForDay(state, day) {
   let appointmentsArray = [];
   if (state.days.length === 0) {
@@ -19,6 +20,7 @@ export function getAppointmentsForDay(state, day) {
   return appointmentIDsFilter;
 }
 
+
 export function getInterviewersForDay(state, day) {
   let interviewersArray = [];
   if (state.days.length === 0) {
@@ -29,6 +31,7 @@ export function getInterviewersForDay(state, day) {
       interviewersArray.push(...obj.interviewers);
     }
   });
+  
   let interviewerIDsFilter = [];
   let interviewerIDs = Object.keys(state.interviewers);
   
@@ -37,10 +40,9 @@ export function getInterviewersForDay(state, day) {
       interviewerIDsFilter.push(state.interviewers[id]);
     }
   });
-  console.log("THESE ARE THE INTERVIEWERS from getInterviewersForDay function: ", interviewersArray);
-  console.log(" interviewerIDsFilter, day = ", interviewerIDsFilter, day);
   return interviewerIDsFilter;
 }
+
 
 
 export function getInterview(state, interview) {
@@ -51,11 +53,6 @@ export function getInterview(state, interview) {
     return {
       student: interview.student,
       interviewer: eachInterviewerData,
-      // {
-      //   id: interview.interviewer,
-      //   name: eachInterviewerData.name,
-      //   avatar: eachInterviewerData.avatar
-      // }
-    }
+    };
   }
 }

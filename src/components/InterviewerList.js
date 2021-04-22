@@ -4,10 +4,8 @@ import InterviewerListItem from "components/InterviewerListItem";
 import PropTypes from 'prop-types';
 
 
-
 function InterviewerList(props) {
-  console.log("props in interviewerList component = ", props);
-  const interviewersArray = props.interviewers.map(interviewer => {
+  const interviewersArray = props.interviewers && props.interviewers.map(interviewer => {
     return (
       <InterviewerListItem
         key={interviewer.id}
@@ -37,21 +35,3 @@ InterviewerList.propTypes = {
 
 export default InterviewerList;
 
-
-// export default function DayList(props)  {
-
-//   const daysArray = props.days.map(day => {
-//     console.log("props = ", props);
-//     console.log("days = ", props.days);
-//     return (
-//           <DayListItem 
-//             key={day.id}
-//             name={day.name} 
-//             spots={day.spots} 
-//             selected={day.name === props.day}
-//             setDay={props.setDay}  
-//             />
-//     );
-//   })
-//   return <ul>{ daysArray }</ul>
-// }

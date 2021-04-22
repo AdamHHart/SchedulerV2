@@ -1,15 +1,10 @@
 import React from "react";
-
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-
 import "index.scss";
-
 import Button from "components/Button";
-
 import DayListItem from "components/DayListItem";
 import DayList from "components/DayList";
-
 import InterviewerListItem from "components/InterviewerListItem";
 import InterviewerList from "components/InterviewerList";
 import Appointment from "components/Appointment";
@@ -20,6 +15,7 @@ import Confirm from "components/Appointment/Confirm";
 import Status from "components/Appointment/Status";
 import Error from "components/Appointment/Error";
 import Form from "components/Appointment/Form";
+
 
 storiesOf("Button", module)
   .addParameters({
@@ -36,7 +32,6 @@ storiesOf("Button", module)
       Disabled
     </Button>
   ));
-
 
 
   storiesOf("DayListItem", module) //Initiates Storybook and registers our DayListItem component
@@ -68,6 +63,7 @@ storiesOf("Button", module)
       spots: 0,
     },
   ];
+  
   
   storiesOf("DayList", module)
     .addParameters({
